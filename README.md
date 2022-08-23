@@ -1,5 +1,5 @@
 # flask-teste
-Teste de aplicação web usando Flask
+Teste de aplicação web com Flask
 
 Inicie o ambiente virtual venv: 
 
