@@ -12,3 +12,7 @@ Inicie o servidor de desenvolvimento:
 ```bash
 flask --app app/main --debug run
 ```
+
+```bash
+pepepepe
+```
