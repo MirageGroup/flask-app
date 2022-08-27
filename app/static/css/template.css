@@ -6,3 +6,9 @@
   background-color: #0D122B;
   color: #FFFBFF;
 }
+
+img {
+  height: 20%;
+  width: 20%;
+  margin-left: 80%;
+}
