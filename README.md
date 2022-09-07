@@ -1,41 +1,14 @@
 # flask-app
 Teste de aplicação web com Flask
 
-Crie o ambiente virtual venv:
+Clone o repositório para o seu computador e use um dos comandos abaixo, dependendo de seu SO
 
 Linux:
 ```bash
-python3 -m venv venv
-```
-Windows:
-```bash
-python -m venv venv
-```
-
-Inicie o ambiente virtual venv: 
-
-Linux:
-```bash
-. venv/bin/activate
-```
-Windows:
-```bash
-venv\Scripts\activate
-```
-
-Instale as dependências de desenvolvimento:
-```bash
-pip install -r requirements.txt
-```
-
-Inicie o servidor de desenvolvimento:
-
-Linux:
-```bash
-flask --app app/main --debug run
+python3 -m venv venv && . venv/bin/activate && pip install -r requirements.txt && flask --app app/main --debug run
 ```
 
 Windows:
 ```bash
-python app/main.py
+python -m venv venv && venv\Scripts\activate && pip install -r requirements.txt && python app/main.py
 ```
