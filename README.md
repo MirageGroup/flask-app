@@ -23,6 +23,11 @@ Windows:
 venv\Scripts\activate
 ```
 
+Instale as dependências de desenvolvimento:
+```bash
+pip install -r requirements.txt
+```
+
 Inicie o servidor de desenvolvimento:
 
 Linux:
