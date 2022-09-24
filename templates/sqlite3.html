@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <link rel="stylesheet" href="../static/css/card.css">
+  <title>SQLite</title>
+</head>
+<body>
+  {% for cadastro in users %}
+    <div class="cadastros">
+      <card>
+        <center><h2> Usuário {{ cadastro['id'] }}</h2></center>
+        <p><b>Nome: </b>{{ cadastro['name'] }}</p>
+        <p><b>Senha: </b>{{ cadastro['senha'] }}</p>
+        <p><b>E-mail: </b>{{ cadastro['email'] }}</p>
+        <div class="buttons">
+          <form action="{{url_for('sqlite_delete', userid=cadastro['id'])}}" method="POST">
+            <input type="submit" value="DELETAR">
+          </form>
+          <form action="{{url_for('sqlite_edit', userid=cadastro['id'])}}">
+            <input type="submit" value="EDITAR">
+          </form>
+        </div>
+        <!-- <a href="{{url_for('sqlite_delete', userid=cadastro['id'])}}"><input type="button" value="DELETAR" ></a> -->
+      </card>
+    </div>
+    <hr>
+
+    {% endfor %}
+
+    </body>
+</html>
