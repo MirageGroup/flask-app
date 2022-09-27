@@ -36,13 +36,14 @@ def sqlite():
     name = request.form['name']
     senha = request.form['senha']
     email = request.form['email']
-    conn.execute('INSERT INTO Tables (name, senha, email) VALUES (?, ?, ?)', (name, senha, email))
+    posicao = request.form['posicao']
+    conn.execute('INSERT INTO Tables (name, senha, email, posy) VALUES (?, ?, ?, ?)', (name, senha, email, posicao))
     conn.commit()
     conn.close()
     return redirect('/sqlite')
   else:
     conn = get_db_connection()
-    users = conn.execute('SELECT * FROM Tables').fetchall()
+    users = conn.execute('SELECT * FROM Tables ORDER BY posy ASC').fetchall()
     conn.close()
     return render_template('sqlite3.html', users=users)
 

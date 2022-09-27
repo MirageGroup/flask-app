@@ -7,12 +7,12 @@ with open('schema.sql') as f:
 
 cur = connection.cursor()
 
-cur.execute("INSERT INTO Tables (name, senha, email) VALUES (?, ?, ?)",
-                                ('Pedro', '545700', 'pedropucci7@hotmail.com') 
+cur.execute("INSERT INTO Tables (name, senha, email, posy) VALUES (?, ?, ?, ?)",
+                                ('Pedro', '545700', 'pedropucci7@hotmail.com', '2') 
                                 )
 
-cur.execute("INSERT INTO Tables (name, senha, email) VALUES (?, ?, ?)",
-                                ('Lucas', 'sonaoflol', 'lucasuchiha@gmail.com')
+cur.execute("INSERT INTO Tables (name, senha, email, posy) VALUES (?, ?, ?, ?)",
+                                ('Lucas', 'sonaoflol', 'lucasuchiha@gmail.com', '1')
                                 )
 
 connection.commit()
