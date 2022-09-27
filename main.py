@@ -1,3 +1,4 @@
+import re
 from flask import Flask, render_template, request, redirect
 from markupsafe import escape
 #from flask_mysqldb import MySQL
@@ -36,16 +37,18 @@ def sqlite():
     name = request.form['name']
     senha = request.form['senha']
     email = request.form['email']
-    posicao = request.form['posicao']
-    conn.execute('INSERT INTO Tables (name, senha, email, posy) VALUES (?, ?, ?, ?)', (name, senha, email, posicao))
+    posicaox = request.form['posicaox']
+    posicaoy = request.form['posicaoy']
+    conn.execute('INSERT INTO Tables (name, senha, email, posx, posy) VALUES (?, ?, ?, ?, ?)', (name, senha, email, posicaox, posicaoy))
     conn.commit()
     conn.close()
     return redirect('/sqlite')
   else:
     conn = get_db_connection()
-    users = conn.execute('SELECT * FROM Tables ORDER BY posy ASC').fetchall()
+    fileira1 = conn.execute('SELECT * FROM Tables WHERE posy = "1" ORDER BY posx ASC').fetchall()
+    fileira2 = conn.execute('SELECT * FROM TABLES WHERE posy = "2" ORDER BY posx ASC').fetchall()
     conn.close()
-    return render_template('sqlite3.html', users=users)
+    return render_template('sqlite3.html', fileira1=fileira1, fileira2=fileira2) 
 
 @app.route('/sqlite_delete/<int:userid>', methods = ['POST'])
 def sqlite_delete(userid):

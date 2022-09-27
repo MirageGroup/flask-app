@@ -3,17 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <link rel="stylesheet" href="../static/css/card.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <link rel="stylesheet" href="../static/css/card.css">
   <title>SQLite</title>
 </head>
 <body>
-  {% for cadastro in users %}
+  <div class="area_cadastros fileira1">
+  {% for cadastro in fileira1 %}
     <div class="cadastros">
       <card>
         <center><h2> Usuário {{ cadastro['id'] }}</h2></center>
         <p><b>Nome: </b>{{ cadastro['name'] }}</p>
         <p><b>Senha: </b>{{ cadastro['senha'] }}</p>
         <p><b>E-mail: </b>{{ cadastro['email'] }}</p>
+        <p><b>Posição X: </b>{{ cadastro['posx'] }}</p>
+        <p><b>Posição Y: </b>{{ cadastro['posy'] }}</p>
         <div class="buttons">
           <form action="{{url_for('sqlite_delete', userid=cadastro['id'])}}" method="POST">
             <input type="submit" value="DELETAR">
@@ -22,12 +26,37 @@
             <input type="submit" value="EDITAR">
           </form>
         </div>
-        <!-- <a href="{{url_for('sqlite_delete', userid=cadastro['id'])}}"><input type="button" value="DELETAR" ></a> -->
       </card>
     </div>
-    <hr>
+  
+    {% endfor %}
+
+  </div>
+  <div class="area_cadastros fileira2">
+    {% for cadastro in fileira2 %}
+    <div class="cadastros">
+      <card>
+        <center><h2> Usuário {{ cadastro['id'] }}</h2></center>
+        <p><b>Nome: </b>{{ cadastro['name'] }}</p>
+        <p><b>Senha: </b>{{ cadastro['senha'] }}</p>
+        <p><b>E-mail: </b>{{ cadastro['email'] }}</p>
+        <p><b>Posição X: </b>{{ cadastro['posx'] }}</p>
+        <p><b>Posição Y: </b>{{ cadastro['posy'] }}</p>
+        <div class="buttons">
+          <form action="{{url_for('sqlite_delete', userid=cadastro['id'])}}" method="POST">
+            <input type="submit" value="DELETAR">
+          </form>
+          <form action="{{url_for('sqlite_edit', userid=cadastro['id'])}}">
+            <input type="submit" value="EDITAR">
+          </form>
+        </div>
+      </card>
+    </div>
 
     {% endfor %}
+ 
+  </div>
+  
 
     </body>
 </html>

@@ -5,5 +5,6 @@ CREATE TABLE Tables (
 	name VARCHAR(50) NOT NULL,
 	senha VARCHAR(50) NOT NULL,
 	email VARCHAR(50) NOT NULL,
+	posx CHAR NOT NULL,
 	posy CHAR NOT NULL
 );
